@@ -1,0 +1,6 @@
+== TO DO
+
+=Create todo list in rails
+
+* Make a To Do list app, with just a single model task model. Don't worry about having a checkbox for done - save marking tasks as done or not until the next step.
+* On the index page, let users mark tasks as done without deleting them.
