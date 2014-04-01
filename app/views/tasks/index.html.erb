@@ -1,25 +1,37 @@
+<br>
+<div class="jumbotron">
 <h1>Tasks!! Woohoo</h1>
-
-<ul>
+<br>
+<table class="table table-hover">
   <% @tasks.each do |task| %>
-    <li>
-    <%= task.description %> <a href="/tasks/<%= task.id %>/edit">edit</a>
-    <a href="/tasks/<%= task.id %>"
-      data-confirm="You sure?"
-      data-method="delete"
-      rel="nofollow">delete</a>
-
+    <tr>
       <form action="/tasks/<%= task.id %>/" method="post">
-        <input name="_method" type="hidden" value="patch">
-        <input name="done" type="hidden" value="<%= task.done = true %>">
-        <button>Mark done</button>
+        <td>
+          <%= task.description %>
+        </td>
+        <td>
+          <a href="/tasks/<%= task.id %>/edit">edit</a>
+        </td>
+        <td>
+          <a href="/tasks/<%= task.id %>"
+            data-confirm="You sure?"
+            data-method="delete"
+            rel="nofollow">delete</a>
+        </td>
+        <td>
+          <input name="_method" type="hidden" value="patch">
+          <input name="done" type="hidden" value="<%= task.done = true %>">
+          <button>Mark done</button>
+        </td>
       </form>
-    </li>
+    </tr>
   <% end %>
-</ul>
+</table>
+</div>
+
 
 <h2>New Task</h2>
-
+<br>
 <% if @task.errors.any? %>
   <h3>Please fix these errors:</h3>
   <ul>
@@ -34,7 +46,7 @@
   <input id="task_description" name="description" type="text" value="<%= @task.description %>">
   <button>Create Task</button>
 </form>
-
+<br>
 <h3>Completed Tasks</h3>
 
 <ul>
@@ -42,3 +54,4 @@
     <li><%= task.description %></li>
   <% end %>
 </ul>
+
